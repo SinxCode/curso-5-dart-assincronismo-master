@@ -18,7 +18,7 @@ class BotClock {
 
     }
 
-    print('The Stream is Over.');
+    print('A stream terminou!.');
   }
  
 

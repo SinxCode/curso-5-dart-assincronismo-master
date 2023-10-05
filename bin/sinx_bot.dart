@@ -10,10 +10,10 @@ void main() async {
 
   var myStream = BotClock().sinxBotStream(1,11);
   var subscriber = myStream.listen((event){
-    print('              SinxBot is activated for $event seconds');
+    print('              SinxBot está ativo há $event segundos');
   },
   onDone: () {
-    print('SinxBot is finishing its work, ask the last question');
+    print('SinxBot não aguenta mais pergunta...');
     a = false; //para ficar no looping
   },);
 

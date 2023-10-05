@@ -8,11 +8,19 @@ void main() async {
   var a = true;
   String usuario = '';
 
+  var myStream = BotClock().sinxBotStream(1,11);
+  var subscriber = myStream.listen((event){
+    print('              SinxBot is activated for $event seconds');
+  },
+  onDone: () {
+    print('SinxBot is finishing its work, ask the last question');
+    a = false; //para ficar no looping
+  },);
+
   print('-- Iniciando o SinxBot, aguarde..--');
-  await BotClock().clock(2); //Utilizando método de espera
+  await BotClock().clock(3); //Utilizando método de espera
 
   print('SinxBot:\n Oi :) \n Como posso ajudar?');
-try{
   do {
     usuario = stdin.readLineSync().toString();
     print('-- Processando pergunta, aguarde..--');
@@ -36,9 +44,7 @@ try{
       print(sinxBot + ' Você pode fazer outra pergunta ou dizer Adeus');
     }
   } while (a);
-}catch (e){
-  print(e);
-} 
+
 
   print('--Encerrando SinxBot--');
 }
